@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+eu-ai-act-assessment/node_modules/
+api/node_modules/
+
+# Build output
+dist/
+eu-ai-act-assessment/dist/
+
+# Environment variables (never commit!)
+.env
+.env.local
+.env.*.local
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

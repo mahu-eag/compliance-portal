@@ -1,0 +1,7 @@
+/* EU AI Act Assessment – minimal base reset */
+*, *::before, *::after { box-sizing: border-box; }
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}

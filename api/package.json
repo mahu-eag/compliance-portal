@@ -1,0 +1,10 @@
+{
+  "name": "elpix-assessment-api",
+  "version": "1.0.0",
+  "description": "Azure Functions – E-Mail API für elpix Compliance Assessments",
+  "main": "index.js",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "nodemailer": "^6.9.0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "routes": [
+    {
+      "route": "/api/*",
+      "allowedRoles": ["anonymous"]
+    },
+    {
+      "route": "/nis-2-check/*",
+      "serve": "/nis-2-check/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/eu-ai-act-check/*",
+      "serve": "/eu-ai-act-check/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/nis-2-check/*", "/eu-ai-act-check/*", "/api/*"]
+  },
+  "globalHeaders": {
+    "Cache-Control": "no-cache"
+  }
+}

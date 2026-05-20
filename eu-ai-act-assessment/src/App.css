@@ -1,0 +1,8 @@
+/* EU AI Act Assessment – App-specific overrides */
+/* Base styles are in elpix.css */
+
+@media (max-width: 600px) {
+  .welcome-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
