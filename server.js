@@ -40,13 +40,17 @@ app.use(express.json({ limit: '2mb' }));
 const DIST = join(__dirname, 'dist');
 
 // Subapps — serve built assets, fallback to index.html for client-side routing
-app.use('/nis-2-check', express.static(join(DIST, 'nis-2-check')));
-app.get('/nis-2-check/{*path}', (_req, res) =>
-  res.sendFile(join(DIST, 'nis-2-check', 'index.html')));
+app.use('/nis-2', express.static(join(DIST, 'nis-2')));
+app.get('/nis-2/{*path}', (_req, res) =>
+  res.sendFile(join(DIST, 'nis-2', 'index.html')));
 
-app.use('/eu-ai-act-check', express.static(join(DIST, 'eu-ai-act-check')));
-app.get('/eu-ai-act-check/{*path}', (_req, res) =>
-  res.sendFile(join(DIST, 'eu-ai-act-check', 'index.html')));
+app.use('/eu-ai-act', express.static(join(DIST, 'eu-ai-act')));
+app.get('/eu-ai-act/{*path}', (_req, res) =>
+  res.sendFile(join(DIST, 'eu-ai-act', 'index.html')));
+
+app.use('/itq', express.static(join(DIST, 'itq')));
+app.get('/itq/{*path}', (_req, res) =>
+  res.sendFile(join(DIST, 'itq', 'index.html')));
 
 // Portal selector page (root) — serve from dist/ which includes portal files
 app.use(express.static(DIST));

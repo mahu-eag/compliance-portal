@@ -15,6 +15,11 @@
       "statusCode": 200
     },
     {
+      "route": "/itq-check/*",
+      "serve": "/itq-check/index.html",
+      "statusCode": 200
+    },
+    {
       "route": "/*",
       "serve": "/index.html",
       "statusCode": 200
@@ -22,7 +27,7 @@
   ],
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/nis-2-check/*", "/eu-ai-act-check/*", "/api/*"]
+    "exclude": ["/nis-2-check/*", "/eu-ai-act-check/*", "/itq-check/*", "/api/*"]
   },
   "globalHeaders": {
     "Cache-Control": "no-cache"

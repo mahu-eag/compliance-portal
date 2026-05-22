@@ -1,0 +1,16 @@
+
+Vorgehensmodell-Agent
+
+Erstelle mir einen KI-Agenten, mit dem automatisiert Vorgehensmodelle basierend auf den User-Eingaben erstellt werden können. 
+
+Es geht in einem ersten Schritt um IT-Projekte z.B. die Einführung von M365. Fragen könnten starten mit... 
+
+Beschreiben sie Ihre aktuelle Situation, legen Sie einen Fokus auf Mensch, Maschine, Software und Beziehungen untereinander. Welche Prozesse gibt es, wie sind diese digitalisiert etc.
+
+Basierend auf der Situation gibt es weitere Detailfragen. Zu jeder Detailfrage fasse vorher die gegebenen Antworten zusammen und liste diese als Info mit auf. So hat der User immer die Möglichkeit, diese nochmal anzupassen. 
+
+Am Ende soll ein Vorgehensmodell erstellt werden --> direkte Sicht ist High-Level. Dies sollte auf einer weiteren Seite passieren. 
+
+Hinter einer Paywall soll dann die Detailsicht angezeigt werden die klar definierte Schritte darstellt, mit einem Zeitlichen Aufwand in Tagen oder Stunden. Dann auch die Dauer darstellt und mögliche Abhängigkeiten zu anderen Schritten. 
+Es soll auch unterschieden werden, ob eine Internee oder externe Bearbeitung empfohlen wird. Man bekommt die Möglichkeit, zwei Raten einzutragen - interne Ressource - externe Ressource. Default-Werte sind 500 EUR intern und 1000 EUR extern. 
+

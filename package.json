@@ -1,11 +1,11 @@
 {
-  "name": "compliance-portal",
+  "name": "nis2-assessment",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --base /nis-2-check/",
-    "build": "vite build && cd eu-ai-act-assessment && npm run build && cd .. && cp -r portal/* dist/",
+    "dev": "vite --base /nis-2/",
+    "build": "vite build && cd ../eu-ai-act-assessment && npm run build && cd ../itq-assessment && npm run build && cd ../nis2-assessment && cp -r portal/* dist/",
     "start": "node server.js"
   },
   "dependencies": {

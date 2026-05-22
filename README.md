@@ -1,85 +1,16 @@
-# elpix Compliance Portal
+# React + Vite
 
-Readiness Assessments für EU AI Act und NIS-2 – gebaut mit React + Vite,
-gehostet auf Azure Static Web Apps, E-Mail-Versand über Azure Functions.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Struktur
+Currently, two official plugins are available:
 
-```
-compliance-portal/
-├── src/                         NIS-2 React App (Quelle)
-├── eu-ai-act-assessment/        EU AI Act React App (Quelle)
-├── api/                         Azure Functions (E-Mail-API)
-├── portal/                      Statische Übersichtsseite
-├── public/                      NIS-2 Assets (Logo, Icons)
-├── server.js                    Lokaler Dev-Server (nur lokal)
-├── vite.config.js               NIS-2 Vite-Konfiguration
-├── staticwebapp.config.json     Azure SWA Routing
-├── .env.example                 Vorlage für SMTP-Konfiguration
-└── .gitignore
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Lokale Entwicklung
+## React Compiler
 
-```bash
-# 1. Abhängigkeiten installieren
-npm install
-cd eu-ai-act-assessment && npm install && cd ..
-cd api && npm install && cd ..
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-# 2. .env anlegen
-cp .env.example .env
-# → .env mit SMTP-Zugangsdaten befüllen
+## Expanding the ESLint configuration
 
-# 3. Lokalen Server starten (Terminal 1)
-node server.js
-
-# 4. Vite Dev-Server starten (Terminal 2)
-npm run dev         # NIS-2 → http://localhost:5173/nis-2-check/
-# oder
-cd eu-ai-act-assessment && npm run dev   # EU AI Act → http://localhost:5174/eu-ai-act-check/
-```
-
-## Production Build
-
-```bash
-npm run build
-# → dist/ enthält alle drei Apps (portal, nis-2-check, eu-ai-act-check)
-```
-
-## Deployment – Azure Static Web Apps
-
-### Ordner hochladen
-| Quelle | Azure Einstellung |
-|--------|-------------------|
-| `dist/` | App location / Output |
-| `api/`  | API location |
-
-### Per SWA CLI
-```bash
-npm install -g @azure/static-web-apps-cli
-swa deploy ./dist --api-location ./api --env production
-```
-
-### Environment Variables (Azure Portal)
-Unter **Configuration → Application Settings** eintragen:
-
-| Key | Wert |
-|-----|------|
-| `SMTP_HOST` | `smtp.office365.com` |
-| `SMTP_PORT` | `587` |
-| `SMTP_SECURE` | `false` |
-| `SMTP_USER` | `quick-check@ihredomain.de` |
-| `SMTP_PASSWORD` | `…` |
-| `MAIL_FROM` | `"elpix Assessment" <quick-check@ihredomain.de>` |
-| `MAIL_TO_INTERNAL` | `infosec@ihredomain.de` |
-
-## Assessments
-
-| URL | Beschreibung |
-|-----|-------------|
-| `/` | Übersichtsseite |
-| `/nis-2-check/` | NIS-2 Readiness Assessment |
-| `/eu-ai-act-check/` | EU AI Act Readiness Assessment |
-| `/api/send-email` | E-Mail API (POST) |
-| `/api/health` | Health-Check (GET) |
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

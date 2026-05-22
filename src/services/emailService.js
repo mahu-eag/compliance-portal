@@ -28,7 +28,7 @@ export async function isEmailConfigured() {
 }
 
 // ─── Priority helpers ─────────────────────────────────────────────────────
-function prioColor(p)  { return p === 'high' ? '#e30613' : p === 'medium' ? '#d97706' : '#16a34a'; }
+function prioColor(p)  { return p === 'high' ? '#FF4338' : p === 'medium' ? '#d97706' : '#16a34a'; }
 function prioLabel(p)  { return p === 'high' ? 'Hoch'    : p === 'medium' ? 'Mittel'  : 'Niedrig'; }
 function typeLabel(t)  { return t === 'tech' ? 'Technisch' : t === 'org' ? 'Organisatorisch' : 'Change & Adoption'; }
 
@@ -42,15 +42,15 @@ function buildCustomerHTML(contactData, questions, answers, relevantMeasures, sc
     percentage >= 40 ? 'Verbesserungswürdig' : 'Kritisch'
   );
   const ratingColor = percentage >= 85 ? '#16a34a' : percentage >= 65 ? '#4f8f52' :
-                      percentage >= 40 ? '#d18b00' : '#e30613';
+                      percentage >= 40 ? '#d18b00' : '#FF4338';
 
   const totalMeasures = relevantMeasures.reduce((s, m) => s + m.measures.length, 0);
   const highPrioCount = relevantMeasures.filter(m => m.sectionPriority === 'high').length;
   const totalEffort   = relevantMeasures.reduce((s, sec) => s + sec.measures.reduce((ss, m) => ss + (m.effortPT || 0), 0), 0);
 
   const summaryHTML = summary?.sections?.map(sec => `
-    <div style="margin-bottom:1.25rem;padding:1rem 1.2rem;background:#f9fafb;border-radius:8px;border-left:3px solid #e30613;">
-      <div style="font-size:0.72rem;font-weight:700;color:#e30613;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.4rem;">${sec.headline}</div>
+    <div style="margin-bottom:1.25rem;padding:1rem 1.2rem;background:#f9fafb;border-radius:8px;border-left:3px solid #FF4338;">
+      <div style="font-size:0.72rem;font-weight:700;color:#FF4338;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.4rem;">${sec.headline}</div>
       <p style="margin:0;font-size:0.9rem;color:#374151;line-height:1.7;">${sec.body}</p>
     </div>`).join('') ?? '';
 
@@ -94,12 +94,19 @@ function buildCustomerHTML(contactData, questions, answers, relevantMeasures, sc
 <body style="margin:0;padding:0;background:#f0f2f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
 <div style="max-width:680px;margin:0 auto;padding:1.5rem 1rem;">
 
-  <div style="background:linear-gradient(135deg,#1f1f1f,#2b2b2b);border-radius:12px 12px 0 0;padding:1.75rem 2rem;">
-    <div style="display:inline-block;background:#e30613;color:#fff;font-size:0.65rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:4px;margin-bottom:0.75rem;">NIS-2</div>
-    <h1 style="margin:0 0 0.4rem;color:#fff;font-size:1.5rem;font-weight:700;">Ihr NIS-2 Readiness Assessment</h1>
-    <p style="margin:0;color:rgba(255,255,255,0.6);font-size:0.85rem;">
-      ${new Date().toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' })}${company ? ` · ${company}` : ''}
-    </p>
+  <div style="background-color:#FF4338;border-radius:12px 12px 0 0;padding:0;">
+    <!-- Logo-Bereich -->
+    <div style="padding:1.25rem 2rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.2);">
+      <img src="https://quick-check.elpix.ag/logo.png" alt="elpix AG" style="height:32px;width:auto;display:block;filter:brightness(0) invert(1);" />
+    </div>
+    <!-- Titel-Bereich -->
+    <div style="padding:1.5rem 2rem 1.75rem;">
+      <div style="display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:0.65rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:4px;margin-bottom:0.75rem;">NIS-2</div>
+      <h1 style="margin:0 0 0.4rem;color:#fff;font-size:1.5rem;font-weight:700;">Ihr NIS-2 Readiness Assessment</h1>
+      <p style="margin:0;color:rgba(255,255,255,0.8);font-size:0.85rem;">
+        ${new Date().toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' })}${company ? ` · ${company}` : ''}
+      </p>
+    </div>
   </div>
 
   <div style="background:#fff;padding:2rem;border:1px solid #e2e2e2;border-top:none;">
@@ -125,7 +132,7 @@ function buildCustomerHTML(contactData, questions, answers, relevantMeasures, sc
     </div>
 
     <div style="display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;">
-      <div style="background:#e30613;border-radius:12px;padding:1.2rem 1.5rem;color:#fff;text-align:center;min-width:110px;flex:1;">
+      <div style="background:#FF4338;border-radius:12px;padding:1.2rem 1.5rem;color:#fff;text-align:center;min-width:110px;flex:1;">
         <div style="font-size:2.4rem;font-weight:800;">${percentage}%</div>
         <div style="font-size:0.78rem;opacity:0.85;margin-top:0.15rem;">Reifegrad</div>
         <div style="font-size:0.72rem;opacity:0.65;">${achievedScore}/${maxScore} Punkte</div>
@@ -144,7 +151,7 @@ function buildCustomerHTML(contactData, questions, answers, relevantMeasures, sc
 
     <div style="margin-bottom:2rem;">
       <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:2px solid #e2e2e2;">
-        <div style="width:4px;height:22px;border-radius:3px;background:#e30613;flex-shrink:0;"></div>
+        <div style="width:4px;height:22px;border-radius:3px;background:#FF4338;flex-shrink:0;"></div>
         <h2 style="margin:0;font-size:1.1rem;color:#1f1f1f;">Executive Summary</h2>
       </div>
       ${summaryHTML}
@@ -170,28 +177,52 @@ function buildCustomerHTML(contactData, questions, answers, relevantMeasures, sc
       ${detailHTML}
     </div>` : ''}
 
-    <div style="background:linear-gradient(135deg,#fff1f2,#fef2f2);border:1px solid #fecdd3;border-radius:10px;padding:1.4rem 1.6rem;margin-bottom:1.5rem;">
+    <!-- CTA Box -->
+    <div style="background:#f8f9fa;border:1px solid #e2e2e2;border-radius:10px;padding:1.4rem 1.6rem;margin-bottom:1.5rem;">
       <p style="margin:0 0 0.6rem;font-weight:700;color:#1f1f1f;font-size:1rem;">Persönliche Beratung vereinbaren</p>
       <p style="margin:0 0 1rem;color:#6f6f6f;font-size:0.88rem;line-height:1.65;">
         Das elpix-Team meldet sich in Kürze mit konkreten Empfehlungen. Bei dringenden Fragen stehen wir sofort zur Verfügung.
       </p>
-      <a href="mailto:infosec@elpix.ag" style="display:inline-block;background:#e30613;color:#fff;padding:0.7rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.9rem;">
+      <a href="mailto:infosec@elpix.ag" style="display:inline-block;background:#FF4338;color:#fff;padding:0.7rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.9rem;">
         Beratungsgespräch anfragen →
       </a>
     </div>
 
-    <p style="margin:0;color:#6f6f6f;font-size:0.87rem;line-height:1.65;">
-      Mit freundlichen Grüßen,<br>
-      <strong style="color:#1f1f1f;">Ihr elpix AG Team</strong><br>
-      <a href="https://elpix.ag" style="color:#e30613;text-decoration:none;">elpix.ag</a> ·
-      <a href="mailto:infosec@elpix.ag" style="color:#e30613;text-decoration:none;">infosec@elpix.ag</a>
-    </p>
+    <!-- Signatur -->
+    <p style="margin:1.5rem 0 0.2rem;font-size:14px;color:#1f1f1f;">Mit freundlichen Grüßen,</p>
+    <p style="margin:0 0 1.5rem;font-size:14px;color:#1f1f1f;font-weight:700;">Ihr elpix AG Team</p>
+    <table cellpadding="0" cellspacing="0" style="width:100%;border-top:3px solid #FF4338;padding-top:1.25rem;margin-top:0;">
+      <tr>
+        <td style="vertical-align:top;padding-right:1.5rem;width:110px;">
+          <img src="https://quick-check.elpix.ag/logo.png" alt="elpix" style="height:40px;width:auto;display:block;" />
+        </td>
+        <td style="vertical-align:top;border-left:1px solid #e2e2e2;padding-left:1.5rem;">
+          <table cellpadding="0" cellspacing="0">
+            <tr><td style="font-size:13px;color:#1f1f1f;line-height:1.6;padding-bottom:2px;">p:&nbsp;<a href="tel:+492018102080" style="color:#1f1f1f;text-decoration:none;">+49 201 8102080</a></td></tr>
+            <tr><td style="font-size:13px;color:#1f1f1f;line-height:1.6;padding-bottom:2px;">e:&nbsp;<a href="mailto:infosec@elpix.ag" style="color:#FF4338;text-decoration:none;">infosec@elpix.ag</a></td></tr>
+            <tr><td style="font-size:13px;color:#FF4338;font-weight:600;line-height:1.6;padding-bottom:2px;">Alfredstr. 73, 45130 Essen</td></tr>
+            <tr><td style="font-size:13px;line-height:1.6;padding-bottom:10px;"><a href="https://www.elpix.ag" style="color:#FF4338;text-decoration:none;">www.elpix.ag</a></td></tr>
+            <tr><td style="padding-bottom:12px;">
+              <a href="https://www.xing.com/pages/elpixag" target="_blank" style="display:inline-block;width:32px;height:32px;background:#FF4338;border-radius:50%;text-align:center;line-height:32px;color:#fff;text-decoration:none;font-weight:800;font-size:13px;margin-right:5px;">x</a>
+              <a href="https://www.linkedin.com/company/elpix-ag" target="_blank" style="display:inline-block;width:32px;height:32px;background:#FF4338;border-radius:50%;text-align:center;line-height:32px;color:#fff;text-decoration:none;font-weight:700;font-size:11px;margin-right:5px;">in</a>
+              <a href="mailto:infosec@elpix.ag" style="display:inline-block;width:32px;height:32px;background:#FF4338;border-radius:50%;text-align:center;line-height:32px;color:#fff;text-decoration:none;font-size:15px;">✉</a>
+            </td></tr>
+          </table>
+          <div style="font-size:10px;color:#aaa;line-height:1.6;border-top:1px solid #e2e2e2;padding-top:8px;max-width:400px;">
+            elpix AG | Executive Board: Arian Hoxha | Christian Gubensek | Patrick Heike<br>
+            Supervisory Board: Ulrich Janinhoff (Chairman), Ralf-Werner, Johannes-Nicolaas Matthijsse<br>
+            Seat and Court of Registration: Essen | HRB 17451
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
 
   <div style="background:#f4f4f4;border:1px solid #e2e2e2;border-top:none;border-radius:0 0 12px 12px;padding:1rem 2rem;">
     <p style="margin:0;text-align:center;color:#aaa;font-size:0.72rem;line-height:1.6;">
       elpix AG · NIS-2 Readiness Assessment · Automatisch generiert.<br>
-      Die Auswertung dient als erste Orientierung und ersetzt keine rechtverbindliche Prüfung.
+      Die Auswertung dient als erste Orientierung und ersetzt keine rechtverbindliche Prüfung.<br>
+      © ${new Date().getFullYear()} elpix AG · <a href="https://elpix.ag/impressum" style="color:#aaa;text-decoration:none;">Impressum</a>
     </p>
   </div>
 </div>
@@ -219,14 +250,14 @@ function buildInternalHTML(contactData, questions, answers, relevantMeasures, sc
 
   return `<div style="font-family:-apple-system,sans-serif;max-width:720px;margin:0 auto;padding:1rem;background:#f0f2f5;">
   <div style="background:#fff;border-radius:12px;padding:1.75rem;border:1px solid #e2e2e2;">
-    <h2 style="margin:0 0 1.25rem;color:#e30613;font-size:1.2rem;">🔔 Neues NIS-2 Assessment</h2>
+    <h2 style="margin:0 0 1.25rem;color:#FF4338;font-size:1.2rem;">🔔 Neues NIS-2 Assessment</h2>
     <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:1.5rem;">
       ${[
         ['Name',        name],
         ['Unternehmen', company || '—'],
-        ['E-Mail',      `<a href="mailto:${email}" style="color:#e30613;">${email}</a>`],
+        ['E-Mail',      `<a href="mailto:${email}" style="color:#FF4338;">${email}</a>`],
         ['Telefon',     phone || '—'],
-        ['Reifegrad',   `<strong style="color:#e30613;">${percentage}%</strong> (${achievedScore}/${maxScore})`],
+        ['Reifegrad',   `<strong style="color:#FF4338;">${percentage}%</strong> (${achievedScore}/${maxScore})`],
       ].map(([label, val]) => `
         <div style="background:#f4f4f4;border-radius:8px;padding:0.75rem 1rem;min-width:130px;">
           <div style="font-size:0.7rem;color:#6f6f6f;font-weight:700;text-transform:uppercase;margin-bottom:0.2rem;">${label}</div>
@@ -239,7 +270,7 @@ function buildInternalHTML(contactData, questions, answers, relevantMeasures, sc
     </div>
     ${highPrio ? `
     <div style="background:#fff1f2;border:1px solid #fecdd3;border-radius:8px;padding:0.75rem 1rem;margin-bottom:1.5rem;">
-      <div style="font-size:0.72rem;font-weight:700;color:#e30613;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.3rem;">Kritische Handlungsfelder</div>
+      <div style="font-size:0.72rem;font-weight:700;color:#FF4338;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.3rem;">Kritische Handlungsfelder</div>
       <div style="font-size:0.87rem;color:#1f1f1f;">${highPrio}</div>
     </div>` : ''}
     <table style="width:100%;border-collapse:collapse;font-size:0.83rem;border:1px solid #e2e2e2;border-radius:8px;overflow:hidden;">

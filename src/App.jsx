@@ -125,6 +125,7 @@ export default function App() {
           <a href="https://elpix.ag" target="_blank" rel="noreferrer" className="site-logo-link">
             <img src={`${import.meta.env.BASE_URL}Logo.png`} alt="elpix AG" className="site-logo" />
           </a>
+          <div className="site-header-divider" />
           <div className="site-header-title">
             <span className="site-header-badge">NIS-2</span>
             <span className="site-header-label">Readiness Assessment</span>
@@ -137,6 +138,16 @@ export default function App() {
       <footer className="site-footer">
         <div className="site-footer-inner">
           <span>© {new Date().getFullYear()} elpix AG · Alle Rechte vorbehalten</span>
+          <a
+            href="https://elpix.ag/impressum"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: 'var(--elpix-gray)', textDecoration: 'none', fontSize: '0.8rem' }}
+            onMouseEnter={e => e.target.style.textDecoration = 'underline'}
+            onMouseLeave={e => e.target.style.textDecoration = 'none'}
+          >
+            Impressum
+          </a>
           <span className="site-footer-note">
             Dieses Assessment dient als erste Orientierung und ersetzt keine rechtverbindliche Prüfung.
           </span>
@@ -201,6 +212,18 @@ export default function App() {
           onPrev={handlePrev} onNext={handleNext} onFinish={handleFinish}
           canGoPrev={currentIndex > 0} canGoNext={canGoNext} isLast={isLast}
         />
+        <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>
+          <button
+            onClick={() => window.location.href = '/'}
+            style={{
+              background: 'none', border: 'none', color: 'var(--elpix-gray)',
+              fontSize: '0.85rem', cursor: 'pointer', textDecoration: 'underline',
+              padding: '0.25rem 0.5rem',
+            }}
+          >
+            ← Zurück zur Übersicht
+          </button>
+        </div>
       </div>
     </PageShell>
   );
