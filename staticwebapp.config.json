@@ -5,18 +5,18 @@
       "allowedRoles": ["anonymous"]
     },
     {
-      "route": "/nis-2-check/*",
-      "serve": "/nis-2-check/index.html",
+      "route": "/nis-2/*",
+      "serve": "/nis-2/index.html",
       "statusCode": 200
     },
     {
-      "route": "/eu-ai-act-check/*",
-      "serve": "/eu-ai-act-check/index.html",
+      "route": "/eu-ai-act/*",
+      "serve": "/eu-ai-act/index.html",
       "statusCode": 200
     },
     {
-      "route": "/itq-check/*",
-      "serve": "/itq-check/index.html",
+      "route": "/itq/*",
+      "serve": "/itq/index.html",
       "statusCode": 200
     },
     {
@@ -27,7 +27,7 @@
   ],
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/nis-2-check/*", "/eu-ai-act-check/*", "/itq-check/*", "/api/*"]
+    "exclude": ["/nis-2/*", "/eu-ai-act/*", "/itq/*", "/api/*"]
   },
   "globalHeaders": {
     "Cache-Control": "no-cache"

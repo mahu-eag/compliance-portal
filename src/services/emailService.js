@@ -194,7 +194,7 @@ function buildCustomerHTML(contactData, questions, answers, relevantMeasures, sc
     <table cellpadding="0" cellspacing="0" style="width:100%;border-top:3px solid #FF4338;padding-top:1.25rem;margin-top:0;">
       <tr>
         <td style="vertical-align:top;padding-right:1.5rem;width:110px;">
-          <img src="https://quick-check.elpix.ag/logo.png" alt="elpix" style="height:40px;width:auto;display:block;" />
+          <img src="https://quick-check.elpix.ag/logo_rot.png" alt="elpix" style="height:40px;width:auto;display:block;" />
         </td>
         <td style="vertical-align:top;border-left:1px solid #e2e2e2;padding-left:1.5rem;">
           <table cellpadding="0" cellspacing="0">
