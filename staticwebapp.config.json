@@ -30,6 +30,12 @@
     "exclude": ["/nis-2/*", "/eu-ai-act/*", "/itq/*", "/api/*"]
   },
   "globalHeaders": {
-    "Cache-Control": "no-cache"
+    "Cache-Control": "no-cache",
+    "X-Frame-Options": "DENY",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()",
+    "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://quick-check.elpix.ag; frame-ancestors 'none'; object-src 'none'; base-uri 'self'"
   }
 }
